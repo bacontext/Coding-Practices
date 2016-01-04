@@ -1,3 +1,6 @@
+/**
+* Driver class to test Singleton Pattern
+*/
 public class Driver{
 	public static void main(String[] args){
 	OurSingleObject obj = new OurSingleObject();
