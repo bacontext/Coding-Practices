@@ -1,2 +1,2 @@
-# Design-Patterns
-This repository contains coded examples of design patterns.
+# Practice
+This repository contains coded examples of various data structures and design patterns.
