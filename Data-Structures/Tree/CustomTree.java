@@ -1,68 +1,95 @@
 class CustomBinaryTree(){
+  TreeNode root;
 
   /**
    * Default Constructor
    */
   public CustomBinaryTree(){
-    // custome RootNode class?
-    Node root = new Node(null);
+    // custom RootNode class?
+    root = new TreeNode();
   }
 
-  /**
-   * Constructor
-   */
-   public CustomBinaryTree(Object data){
-     root = new Node(data);
-    }
-
-    public void insert(Object data){
-      if(root.getData()==null){
+    public void insert(int data){
+      // check data is not null
+      if(root.getData()==-1){
         root.setData(data);
       } else{
-        Node currentNode = root;
-        // greater than go right
-        // less than go left
-        // equal -> go right
+        insertNode(root, data);
       }
     }
 
-    public Object search(Object data){
-      // if greater than go right
-      // if less than go left
-      // repeat tll find
-      //
+    private void insertNode(TreeNode currentNode, int insertData){
+        int nodeData = currentNode.getData();
+        if(nodeData==-1){ // assumes right and left child null
+          currentNode.setData(new TreeNode(insertData));
+        } else if(nodeData >= insertData){
+          insertNode(currentNode.getRightChild());
+        } else if (node < insertData){
+          insertNode(currentNode.getLeftChild());
+        } else {
+          // throw exception - something went wrong
+        }
+      }
+    }
+
+    public boolean search(int data){
+      // check data is not null (assume data cannot be null)
+      if(root.getData()==-1){
+        return false;
+      } else{
+        return searchNode(root, data);
+      }
+    }
+
+    private boolean searchNode(TreeNode node, int searchData){
+      int nodeData = currentNode.getData();
+      if(nodeData==-1){ // assumes right and left child null
+        return false;
+      } else if(nodeData == searchData){
+        return true;
+      } else if(nodeData >= searchData){
+        search(node.getRightChild(), searchData);
+      } else if (node < searchData){
+        search(node.getLeftChild(), searchData);
+      } else {
+        // throw exception - something went wrong
+      }
     }
 
     // traversals = preoder, inorder, postorder
 
+    /**
+     * TreeNode class - assumes no negative values
+     */
     private class TreeNode(){
-      Object data;
-      Node rightChild;
-      Node leftChild;
+      int data;
+      TreeNode rightChild;
+      TreeNode leftChild;
 
       TreeNode(){
-        data = null;
-        rightChild = new Node(null);
-        leftChild = new Node(null);
+        data = -1;
+        rightChild = new TreeNode();
+        leftChild = new TreeNode();
       }
 
-      void setRightChild(Object Data){
-        // check make sure not override
-        rightChild = new Node(data);
+      int getData(){
+        return data;
       }
 
-      void setRightChild(Object data){
-        // check make sure not override
-        leftChild = new Node(data);
-      }
-
-      Object getRightChild(){
+      TreeNode getRightChild(){
         return rightChild;
       }
 
-      Object getLeftChild(){
+      TreeNode getLeftChild(){
         return leftChild;
       }
 
+      void setLeftChild(TreeNode node){
+        leftChild = node;
+      }
+
+      void setRightChild(TreeNode node){
+        rightChild = node;
+      }
     } // end of private treeNode class
 } // end of tree class
