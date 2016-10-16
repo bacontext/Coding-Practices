@@ -1,3 +1,4 @@
+// assume linkedlist data is an int
 class CustomLinkedList {
   private Node head;
   private int size;
@@ -6,23 +7,23 @@ class CustomLinkedList {
   * Constructor
   */
   public CustomLinkedList(){
-    head = new Node(null);
+    head = new Node();
     size = 0;
   }
 
   /**
   * Adds node to the end of the linkedlist
   */
-  public void add(Object data){
-    addLast(data);
+  public void add(Node node){
+    addLast(node);
   }
 
   /**
   * Adds node at the index provided
   */
-  public void add(int index, Object data){
+  public void add(int index, Node node){
     // validate index is within limits
-    Node newCustomNode = new Node(data);
+    Node newCustomNode = new Node(node.getData());
     if(head.getData()==null){
       head = newCustomNode;
     } else if(index==0){
@@ -42,7 +43,7 @@ class CustomLinkedList {
   /**
   * Adds node to the end of the linkedlist
   */
-  public void addLast(Object data){
+  public void addLast(int data){
     Node tempCustomNode = new Node(data);
     if(head.getData()==null){
       head = tempCustomNode;
