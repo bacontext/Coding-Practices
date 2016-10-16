@@ -1,6 +1,6 @@
 class CustomStack {
-  Node top;
-  int size;
+  private Node top;
+  private int size;
 
   public CustomStack(){
     top = new Node(null);
