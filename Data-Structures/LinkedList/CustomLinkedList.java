@@ -1,13 +1,12 @@
 class CustomLinkedList {
   private Node head;
-  private Node tail;
   private int size;
 
   /**
   * Constructor
   */
   public CustomLinkedList(){
-    head = tail = new Node(null);
+    head = new Node(null);
     size = 0;
   }
 
@@ -25,7 +24,7 @@ class CustomLinkedList {
     // validate index is within limits
     Node newCustomNode = new Node(data);
     if(head.getData()==null){
-      head  = tail = newCustomNode;
+      head = newCustomNode;
     } else if(index==0){
       newCustomNode.setNext(head);
       head = newCustomeNode;
@@ -46,7 +45,7 @@ class CustomLinkedList {
   public void addLast(Object data){
     Node tempCustomNode = new Node(data);
     if(head.getData()==null){
-      head = tail = tempCustomNode;
+      head = tempCustomNode;
     }
     else{
       Node currentCustomNode = head;
@@ -69,7 +68,7 @@ class CustomLinkedList {
   * Resets the linkedlist to original state of one empty node and size 0
   */
   public void clear(){
-    head = tail = new Node(null);
+    head = new Node(null);
     size = 0;
   }
 
