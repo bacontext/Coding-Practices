@@ -56,7 +56,10 @@ class CustomBinaryTree(){
       }
     }
 
-    // traversals = preoder, inorder, postorder
+    // traversals
+    // preorder
+    // inorder
+    // postorder
 
     /**
      * TreeNode class - assumes no negative values
